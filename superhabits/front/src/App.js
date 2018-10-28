@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import MenuBar from './components/menu-bar/menu-bar.component';
 import Home from './pages/home/home';
-import Doing from './pages/doing/doing';
+import Done from './pages/done/done';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
           <Switch>
             <MenuBar>
                 <Route exact path="/home" component={Home}/>
-                <Route exact path="/doing" component={Doing}/>
+                <Route exact path="/done" component={Done}/>
             </MenuBar>
           </Switch>
         </Router>

@@ -9,12 +9,8 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_HABIT:
-            return add(state, action)
+            return { ...state, habits: [...state.habits, action.payload] }
         default:
             return state
     }
-}
-
-const add = (state, action) => {
-    return { ...state, habits: [...state.habits, action.payload] };
 }

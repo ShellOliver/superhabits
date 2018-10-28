@@ -1,9 +1,12 @@
 import React from 'react'
+import Habit from '../../components/habit/habit.component';
+import HabitList from '../habits/habits';
 
 const Home = () => {
   return (
     <div>
-      home
+      <HabitList/>
+      <Habit/>
     </div>
   )
 }

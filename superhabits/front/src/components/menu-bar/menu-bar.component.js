@@ -22,10 +22,10 @@ export default class MenuBar extends Component{
               onClick={this.handleItemClick}
             />
             <Menu.Item
-              name='doing'
+              name='done'
               as={Link}
-              to="/doing"
-              active={this.state.activeItem === 'doing'}
+              to="/done"
+              active={this.state.activeItem === 'done'}
               onClick={this.handleItemClick}
             />
             <Menu.Menu position='right'>
