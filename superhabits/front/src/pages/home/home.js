@@ -1,6 +1,6 @@
 import React from 'react'
 import Habit from '../../components/habit/habit.component';
-import HabitList from '../habits/habits';
+import HabitList from '../habit-list/habitList';
 
 const Home = () => {
   return (
