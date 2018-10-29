@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { add } from '../../actions/habits.action'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { Input } from 'semantic-ui-react'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -16,8 +17,8 @@ export class Habit extends Component {
 
     onsubmit = (e) => {
       e.preventDefault()
-      console.log('ok', this.state.name)
       this.props.addHabit({ name: this.state.name })
+      this.setState({ name: '' })
     }
 
     onChangeHabit = (val) => {
@@ -26,9 +27,12 @@ export class Habit extends Component {
 
     render () {
       return (
-        <div>
+        <div style={{ margin: '1em 0em' }}>
           <form onSubmit={this.onsubmit}>
-            <input onChange={this.onChangeHabit} />
+            <Input size='big' onChange={this.onChangeHabit}
+              value={this.state.name}
+              placeholder='New habit'
+              icon={{ name: 'plus', circular: true }} />
           </form>
         </div>
       )

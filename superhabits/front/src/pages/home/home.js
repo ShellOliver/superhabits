@@ -4,7 +4,7 @@ import HabitList from '../../components/habit-list/habitList'
 
 const Home = () => {
   return (
-    <div>
+    <div style={{ margin: '1em' }}>
       <Habit />
       <HabitList />
     </div>

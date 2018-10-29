@@ -2,7 +2,7 @@ import { mount } from 'enzyme'
 import React from 'react'
 import { Habit } from './habit.component'
 
-describe('home page test', () => {
+describe('habit page test', () => {
   let wrapper
 
   beforeEach(() => {
@@ -16,9 +16,10 @@ describe('home page test', () => {
 
   it('set value and call submit action in habit form', () => {
     let target = {}
+    let input = wrapper.find('Input').find('input')
     wrapper.instance().onsubmit = jest.fn()
-    wrapper.find('input').simulate('change', target.value = 'dasfaga')
-    wrapper.find('input').simulate('submit')
+    input.simulate('change', target.value = 'dasfaga')
+    input.simulate('submit')
     expect(wrapper.instance().onsubmit).toBeCalled()
   })
 })
