@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import Home from './home'
-import HabitList from '../habit-list/habitList'
 import Habit from '../../components/habit/habit.component'
+import HabitList from '../../components/habit-list/habitList'
 
 describe('home page test', () => {
   let wrapper
