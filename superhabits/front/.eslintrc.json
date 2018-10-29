@@ -1,0 +1,15 @@
+{
+    "env": {
+      "es6": true,
+      "jest": true
+    },
+  
+    "globals": {
+      "document": false,
+      "navigator": false,
+      "window": false,
+      "fetch": false
+    },
+    "parser": "babel-eslint",
+    "extends": ["standard", "standard-react"]
+  }

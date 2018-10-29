@@ -1,38 +1,42 @@
-import React, {Component} from 'react'
-import {add} from '../../actions/habits.action'
-import { connect } from 'react-redux';
-
+import React, { Component } from 'react'
+import { add } from '../../actions/habits.action'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 const mapDispatchToProps = dispatch => {
-    return {
-        addHabit: habit => dispatch(add(habit))
-      }    
+  return {
+    addHabit: habit => dispatch(add(habit))
+  }
 }
 
 export class Habit extends Component {
     state = {
-        name: ''
+      name: ''
     }
 
     onsubmit = (e) => {
-        e.preventDefault()
-        console.log('ok', this.state.name)
-        this.props.addHabit({name: this.state.name})
-    }
-    
-    onChangeHabit = (val) => {
-        this.setState({name: val.target.value})
+      e.preventDefault()
+      console.log('ok', this.state.name)
+      this.props.addHabit({ name: this.state.name })
     }
 
-    render(){
-        return (
-          <div>
-          <form onSubmit={this.onsubmit}>
-            <input onChange={this.onChangeHabit}/>
-          </form>
-          </div>
-        )
+    onChangeHabit = (val) => {
+      this.setState({ name: val.target.value })
     }
+
+    render () {
+      return (
+        <div>
+          <form onSubmit={this.onsubmit}>
+            <input onChange={this.onChangeHabit} />
+          </form>
+        </div>
+      )
+    }
+}
+
+Habit.propTypes = {
+  addHabit: PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(Habit)
