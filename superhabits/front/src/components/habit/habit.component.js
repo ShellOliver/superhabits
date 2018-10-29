@@ -9,7 +9,7 @@ const mapDispatchToProps = dispatch => {
       }    
 }
 
-class Habit extends Component {
+export class Habit extends Component {
     state = {
         name: ''
     }
