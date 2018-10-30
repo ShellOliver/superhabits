@@ -2,10 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Table } from 'semantic-ui-react'
+import { del } from '../../actions/habits.action'
 
-const mapStateToProps = state => (state.habit)
+const mapStateToProps = state => ({ habitStore: state.habit })
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteHabit: habit => dispatch(del(habit))
+  }
+}
 
-const HabitList = ({ habits }) => {
+export const HabitList = ({ habitStore }) => {
+  console.log(habitStore)
   return (
     <div>
       <Table color='green'>
@@ -16,7 +23,7 @@ const HabitList = ({ habits }) => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {habits.map((habit, index) => (
+          {habitStore.habits.map((habit, index) => (
             <Table.Row key={index}>
               <Table.Cell>{habit.name}</Table.Cell>
               <Table.Cell>{habit.notes}</Table.Cell>
@@ -29,7 +36,9 @@ const HabitList = ({ habits }) => {
 }
 
 HabitList.propTypes = {
-  habits: PropTypes.array
+  habitStore: PropTypes.array
 }
 
-export default connect(mapStateToProps)(HabitList)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps)(HabitList)

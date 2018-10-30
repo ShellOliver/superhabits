@@ -2,7 +2,6 @@ import { mount, shallow } from 'enzyme'
 import React from 'react'
 import HabitCon, { Habit } from './habit.component'
 import configureStore from 'redux-mock-store'
-import habitReducer from '../../reducers/habit.reducer'
 
 describe('habit page test', () => {
   let wrapper
@@ -38,12 +37,5 @@ describe('habit action test', () => {
   it('should return addHabit action when call addHabit from component', () => {
     const addHab = wrapperCon.props().addHabit({ name: 'added by test' })
     expect(addHab).toEqual({ type: 'ADD_HABIT', payload: { name: 'added by test' } })
-  })
-})
-
-describe('habit reducer test', () => {
-  it('should add habit to store', () => {
-    let newState = habitReducer(undefined, { type: 'ADD_HABIT', payload: { name: 'added by test' } })
-    expect(newState).toEqual({ habits: [ { name: 'added by test' } ] })
   })
 })
