@@ -1,0 +1,34 @@
+version: '3.1'
+
+services:
+  habit-postgres-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: db1
+    ports:
+    - 5433:5432
+  habit-node-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - habit-postgres-db
+    container_name: habit-node-server
+    image: habit-node-server
+    ports:
+      - 3001:3000
+      - 9229:9229
+    volumes:
+      - ./server/:/usr/src/app
+  habit-node-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: habit-node-client
+    image: habit-node-client
+    ports:
+      - 3000:3000
+    volumes:
+      - ./front/:/usr/src/app
