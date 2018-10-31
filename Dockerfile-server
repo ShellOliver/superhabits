@@ -1,5 +1,7 @@
 FROM node:8
 WORKDIR /usr/src/app
 
+COPY ./server .
+
 RUN npm install
 CMD [ "npm", "start" ]

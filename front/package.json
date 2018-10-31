@@ -74,6 +74,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
+    "roots": ["./src"],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
       "react-app-polyfill/jsdom",

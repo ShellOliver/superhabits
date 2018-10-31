@@ -12,7 +12,7 @@ services:
   habit-node-server:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-server
     depends_on:
       - habit-postgres-db
     container_name: habit-node-server
@@ -25,7 +25,7 @@ services:
   habit-node-front:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-front
     container_name: habit-node-client
     image: habit-node-client
     ports:
