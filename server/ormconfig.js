@@ -7,6 +7,9 @@ module.exports = {
     database: "db1",
     synchronize: true,
     logging: false,
-    entities: ['./db/EntitySchema/*.schema.js'],
-    migrations: ['./db/migrations']
+    entities: ['./distdb/EntitySchema/*.schema.js'],
+    migrations: ['./db/migrations/*.js'],
+    cli: {
+        migrationsDir: "db/migrations"
+      }
 }

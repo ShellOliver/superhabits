@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "babel-watch -I -b env ./bin/www"
+    "start": "babel-watch -I -b env ./bin/www",
+    "genSchema": "node_modules/.bin/babel db -d distdb --copy-files",
+    "genMigration": "npm run genSchema && ts-node node_modules/.bin/typeorm migration:generate -n",
+    "runMigrations": "ts-node node_modules/.bin/typeorm migration:run",
+    "cleanDist": "rm -R distdb"
+
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -29,11 +34,13 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-module-alias": "^1.6.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.7",
     "chai": "^4.2.0",
     "jsonwebtoken": "^8.3.0",
     "mocha": "^5.2.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
   }
 }
