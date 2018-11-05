@@ -6,6 +6,9 @@
     "start": "babel-watch -I -b env ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "dotenv": "^6.1.0",
@@ -15,8 +18,9 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
+    "pg": "^7.6.0",
     "redux-mock-store": "^1.5.3",
-    "typeorm": "^0.2.7"
+    "typeorm": "^0.2.8"
   },
   "devDependencies": {
     "babel": "^6.23.0",
