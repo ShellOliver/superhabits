@@ -5,4 +5,4 @@ stopall:
 	docker-compose down
 
 startpsql:
-	docker-compose exec db psql -U postgres
+	docker-compose exec habit-postgres-db psql -U postgres
