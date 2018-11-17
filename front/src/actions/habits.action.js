@@ -1,7 +1,7 @@
 import actionTypes from './action.types'
 
 const add = (payload) => {
-  return { type: actionTypes.ADD_HABIT, payload }
+  return { type: actionTypes.RECEIVE_HABIT, payload }
 }
 
 const del = (payload) => {

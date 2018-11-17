@@ -14,6 +14,6 @@ describe('habit connected component test', () => {
   })
   it('should return addItem action when call addItem from component', () => {
     const addHab = wrapperCon.props().addItem({ name: 'added by test' })
-    expect(addHab).toEqual({ type: 'ADD_HABIT', payload: { name: 'added by test' } })
+    expect(addHab).toEqual({ type: 'RECEIVE_HABIT', payload: { name: 'added by test' } })
   })
 })

@@ -2,7 +2,7 @@ import habitReducer from './habit.reducer'
 
 describe('habit reducer test', () => {
   it('should add habit to store', () => {
-    let newState = habitReducer(undefined, { type: 'ADD_HABIT', payload: { name: 'added by test' } })
+    let newState = habitReducer(undefined, { type: 'RECEIVE_HABIT', payload: { name: 'added by test' } })
     expect(newState).toEqual({ habits: [ { name: 'added by test' } ] })
   })
 
