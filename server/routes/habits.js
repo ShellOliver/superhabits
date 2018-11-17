@@ -2,16 +2,19 @@ var express = require('express');
 var router = express.Router();
 import { Conn } from '../db/dbconection'
 
-router.post('/', async function (req, res, next) {
-  let habitCon = await Conn('Habit');
-  let saved = await habitCon.save({ ...req.body })
-  return res.json(saved)
-});
+router.post('/', addHabit);
+router.get('/', findHabit);
 
-router.get('/', async function (req, res, next) {
+const addHabit = async (req, res) => {
   let habitCon = await Conn('Habit');
-  let saved = await habitCon.find()
-  return res.json(saved)
-});
+  let saved = await habitCon.save({ ...req.body });
+  return res.json(saved);
+};
+
+const findHabit = async (req, res) => {
+  let habitCon = await Conn('Habit');
+  let saved = await habitCon.find();
+  return res.json(saved);
+};
 
 module.exports = router;
