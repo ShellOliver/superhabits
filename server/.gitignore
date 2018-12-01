@@ -4,7 +4,6 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-distdb
 
 # Runtime data
 pids
@@ -71,4 +70,10 @@ typings/
 .vuepress/dist
 
 # Serverless directories
-.serverless
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+#DynamoDB Local files 
+.dynamodb/ 
