@@ -7,7 +7,21 @@ const request = axios.create({
 
 const middleware = ({ dispatch }) => next => async action => {
   if (action.type === API) {
-    await request.post('/')
+    if (action.meta.method === 'POST') {
+      try {
+        let res = await request.post(action.meta.url, action.payload)
+        action.done(res)
+      } catch (error) {
+        action.error(error)
+      }
+    } else if (action.meta.method === 'GET') {
+      try {
+        let res = await request.get(action.meta.url)
+        action.done(res)
+      } catch (error) {
+        action.error(error)
+      }
+    }
   }
 }
 
