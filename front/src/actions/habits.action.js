@@ -1,13 +1,13 @@
 import { RECEIVE_HABIT, DELETE_HABIT, API } from './action.types'
 
-const add = (payload) => {
+const receiveHabit = (payload) => {
   return { type: RECEIVE_HABIT, payload }
 }
 
 const createHabit = (payload) => {
   return {
     type: API,
-    done: add,
+    done: receiveHabit,
     payload,
     meta: { url: 'habit', method: 'POST' } }
 }

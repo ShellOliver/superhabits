@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Input } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
-export class InputForm extends Component {
+class InputForm extends Component {
     state = {
       name: ''
     }
 
     onsubmit = (e) => {
+      const { dispatch, addItem } = this.props
       e.preventDefault()
-      this.props.addItem({ name: this.state.name })
+      dispatch(addItem({ name: this.state.name }))
       this.setState({ name: '' })
     }
 
@@ -32,6 +34,9 @@ export class InputForm extends Component {
 }
 
 InputForm.propTypes = {
+  dispatch: PropTypes.func,
   addItem: PropTypes.func,
   placeholder: PropTypes.string
 }
+
+export default connect(null)(InputForm)
