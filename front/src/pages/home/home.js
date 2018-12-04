@@ -1,14 +1,17 @@
-import React from 'react'
-import Habit from '../../components/habit/habit.component'
+import React, { Component } from 'react'
 import HabitList from '../../components/habit-list/habitList'
+import InputForm from '../../containers/inputForm/input-form.component'
+import { createHabit } from '../../actions/habits.action'
 
-const Home = () => {
-  return (
-    <div style={{ margin: '1em' }}>
-      <Habit />
-      <HabitList />
-    </div>
-  )
+class Home extends Component {
+  render () {
+    return (
+      <div style={{ margin: '1em' }}>
+        <InputForm addItem={createHabit} />
+        <HabitList />
+      </div>
+    )
+  }
 }
 
 export default Home

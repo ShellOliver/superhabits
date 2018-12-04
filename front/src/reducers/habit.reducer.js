@@ -1,6 +1,4 @@
-import actions from '../actions/action.types'
-
-const { RECEIVE_HABIT, DELETE_HABIT } = actions
+import { RECEIVE_HABIT, DELETE_HABIT } from '../actions/action.types'
 
 const initialState = {
   habits: []
