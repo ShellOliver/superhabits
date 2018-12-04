@@ -16,4 +16,4 @@ const del = (payload) => {
   return { type: DELETE_HABIT, payload }
 }
 
-export { add, del }
+export { del, createHabit }
