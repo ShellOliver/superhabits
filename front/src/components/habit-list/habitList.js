@@ -2,14 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Table, Button, Icon } from 'semantic-ui-react'
-import { del } from '../../actions/habits.action'
+import { deleteHabit } from '../../actions/habits.action'
 
 const mapStateToProps = state => ({ habitStore: state.habit })
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteHabit: habit => dispatch(del(habit))
-  }
-}
 
 const DelButton = () => (
   <Button animated='vertical'>
@@ -20,7 +15,7 @@ const DelButton = () => (
   </Button>
 )
 
-export const HabitList = ({ habitStore, deleteHabit }) => {
+export const HabitList = ({ habitStore, dispatch }) => {
   return (
     <div>
       <Table color='green'>
@@ -36,7 +31,7 @@ export const HabitList = ({ habitStore, deleteHabit }) => {
             <Table.Row key={index}>
               <Table.Cell>{habit.name}</Table.Cell>
               <Table.Cell>{habit.notes}</Table.Cell>
-              <Table.Cell onClick={() => deleteHabit(habit)}>
+              <Table.Cell onClick={() => dispatch(deleteHabit(habit))}>
                 <DelButton />
               </Table.Cell>
             </Table.Row>
@@ -49,9 +44,7 @@ export const HabitList = ({ habitStore, deleteHabit }) => {
 
 HabitList.propTypes = {
   habitStore: PropTypes.any,
-  deleteHabit: PropTypes.func
+  dispatch: PropTypes.func
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps)(HabitList)
+export default connect(mapStateToProps)(HabitList)

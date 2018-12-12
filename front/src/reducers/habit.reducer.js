@@ -1,4 +1,4 @@
-import { RECEIVE_HABIT, DELETE_HABIT } from '../actions/action.types'
+import { RECEIVE_HABIT, REMOVE_HABIT } from '../actions/action.types'
 
 const initialState = {
   habits: []
@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_HABIT:
       return { ...state, habits: [...state.habits, action.payload] }
-    case DELETE_HABIT:
+    case REMOVE_HABIT:
       return deleteHabit(state, action)
     default:
       return state
