@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 const mapStateToProps = state => (state.habit)
 
 const Done = ({ habits }) => {
-  console.log('done list without filter ', habits)
   return (
     <div>
       list of habits done
