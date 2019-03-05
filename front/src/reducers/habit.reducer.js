@@ -12,8 +12,8 @@ export default (state = initialState, action) => {
       return state
   }
 }
-function deleteHabit (state, action) {
-  let indexFound = state.habits.findIndex(habit => habit.id === action.payload.id)
-  state.habits.splice(indexFound, 1)
-  return [ ...state ]
+function deleteHabit (habits, action) {
+  let indexFound = habits.findIndex(habit => habit.id === action.payload.id)
+  habits.splice(indexFound, 1)
+  return [ ...habits ]
 }
