@@ -1,4 +1,5 @@
 import habitReducer from './habit.reducer'
+import { RECEIVE_HABIT, REMOVE_HABIT } from '../actions/action.types'
 
 describe('habit reducer test', () => {
   it('should add habit to store', () => {
@@ -8,13 +9,13 @@ describe('habit reducer test', () => {
 
   it('should delete habit from store', () => {
     let newState = habitReducer({ habits: [ { name: 'some habit' } ] },
-      { type: 'DELETE_HABIT', payload: { name: 'some habit' } })
+      { type: REMOVE_HABIT, payload: { name: 'some habit' } })
     expect(newState).toEqual({ habits: [ ] })
   })
 
   it('should delete only one habit from store', () => {
     let newState = habitReducer({ habits: [ { name: 'some habit' }, { name: 'other habit' } ] },
-      { type: 'DELETE_HABIT', payload: { name: 'some habit' } })
+      { type: REMOVE_HABIT, payload: { name: 'some habit' } })
     expect(newState).toEqual({ habits: [ { name: 'other habit' } ] })
   })
 })

@@ -1,13 +1,11 @@
 import { RECEIVE_HABIT, REMOVE_HABIT } from '../actions/action.types'
 
-const initialState = {
-  habits: []
-}
+const initialState = []
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_HABIT:
-      return { ...state, habits: [...state.habits, action.payload] }
+      return [ ...state, action.payload ]
     case REMOVE_HABIT:
       return deleteHabit(state, action)
     default:
@@ -15,7 +13,7 @@ export default (state = initialState, action) => {
   }
 }
 function deleteHabit (state, action) {
-  let indexFound = state.habits.findIndex(habit => habit.name === action.payload.name)
+  let indexFound = state.habits.findIndex(habit => habit.id === action.payload.id)
   state.habits.splice(indexFound, 1)
-  return { ...state }
+  return [ ...state ]
 }

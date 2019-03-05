@@ -40,3 +40,4 @@ InputForm.propTypes = {
 }
 
 export default connect(null)(InputForm)
+export { InputForm }

@@ -1,11 +1,13 @@
 import { API } from '../actions/action.types'
 import axios from 'axios'
 
-const request = axios.create({
+const customRequest = axios.create({
   baseURL: 'http://localhost:3000'
 })
 
-const middleware = ({ dispatch }) => next => async action => {
+const middleware = ({ injectionReq = () => {} }) => next => async action => {
+  const request = customRequest
+  injectionReq(customRequest)
   if (action.type === API) {
     switch (action.meta.method) {
       case 'POST':
@@ -21,6 +23,7 @@ const middleware = ({ dispatch }) => next => async action => {
           await request.delete(`${action.meta.url}/${action.payload.id}`)
           next(action.done(action.payload))
         } catch (error) {
+          console.log(error)
           next(action.error(error))
         }
         break
