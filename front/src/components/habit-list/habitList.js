@@ -11,7 +11,8 @@ const DelButton = () => (
   </Button>
 )
 
-const HabitList = ({ habitStore, deleteHabit }) => {
+const HabitList = ({ habits, deleteHabit }) => {
+  console.log(habits)
   return (
     <div>
       <Table color='green'>
@@ -23,7 +24,7 @@ const HabitList = ({ habitStore, deleteHabit }) => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {habitStore && habitStore.habits.map((habit, index) => (
+          {habits.map((habit, index) => (
             <Table.Row key={index}>
               <Table.Cell>{habit.name}</Table.Cell>
               <Table.Cell>{habit.notes}</Table.Cell>
@@ -39,7 +40,7 @@ const HabitList = ({ habitStore, deleteHabit }) => {
 }
 
 HabitList.propTypes = {
-  habitStore: PropTypes.any,
+  habits: PropTypes.array,
   deleteHabit: PropTypes.func
 }
 

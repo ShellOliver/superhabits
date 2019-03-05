@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import HabitList from '../../components/habit-list/habitList'
+import HabitList from '../../containers/habit-list/habitList.container'
 import InputForm from '../../containers/inputForm/input-form.component'
 import { createHabit } from '../../actions/habits.action'
 
